@@ -91,7 +91,7 @@ class ReservationController extends Controller
 
     public function getEvents(Request $request, $room_id, $plan_id)
     {
-    // 選択された部屋とプランのデータを取得
+    // 選択された部屋とプランのデータを取得(単独取得)
     $rooms = Room::find($room_id);
     $plans = Plan::find($plan_id);
 

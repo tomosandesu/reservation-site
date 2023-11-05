@@ -97,8 +97,6 @@ class ReservationController extends Controller
 
         $events = [];
     
-        foreach ($rooms as $room) {
-            foreach ($plans as $plan) {
                 // 各部屋・プランに対するreservation_slotを取得
                 $slots = Reservation_slot::where('room_id', $room->id)->get();
     
@@ -120,8 +118,6 @@ class ReservationController extends Controller
                         'url' => route('reservation.form', ['room' => $room->id, 'plan' => $plan->id, 'slot' => $slot->id]), // 予約フォームへのルートを設定 (ルート名やパラメータは適宜調整してください)
                     ];
                 }
-            }
-        }
     
         return response()->json($events);
     }
